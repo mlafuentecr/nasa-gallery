@@ -18,10 +18,25 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+div[role=tablist],
+div[role=tabpanel] {
+  width: 100%;
+}
+
+div[role=tablist] button {
+  width: 50%;
+  border-bottom: 2px solid rgb(218, 217, 217);
+}
+
+div[role=tabpanel] {
+  border-bottom: 2px solid rgb(218, 217, 217);
+}
+
+div[role=tablist]~div {
+  width: 100%;
 }
