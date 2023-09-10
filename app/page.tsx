@@ -53,6 +53,7 @@ export default function Home() {
 		console.log('handleSaveUrlFromMemory');
 		if (e) e.preventDefault();
 		saveURL(URI);
+		handleLoadUrlFromMemory(null);
 	};
 
 	const handleDeleteUrls = async (e: React.MouseEvent<HTMLButtonElement> | null) => {

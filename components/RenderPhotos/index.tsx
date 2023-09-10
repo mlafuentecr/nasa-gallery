@@ -1,7 +1,6 @@
 import Image from 'next/image';
 //width={400} height={310}
 const ListOfPhotos = ({ photos }: { photos: any[] }) => {
-	console.log('RenderPhotos', photos, photos.length);
 	return (
 		<ul className='w-full grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-2 my-3 '>
 			{photos.map((photo: any) => (
@@ -14,7 +13,6 @@ const ListOfPhotos = ({ photos }: { photos: any[] }) => {
 };
 
 const RenderPhotos = ({ photos }: { photos: any[] }) => {
-	console.log('RenderPhotos', photos, photos.length);
 	if (photos) {
 		return photos.length > 0 ? <ListOfPhotos photos={photos} /> : <h1 className='text-xl font-semibold my-4'>No Results</h1>;
 	} else {
