@@ -13,7 +13,16 @@ const ListOfPhotos = ({ photos }: { photos: any[] }) => {
 };
 
 const RenderPhotos = ({ photos }: { photos: any[] }) => {
-	return photos.length > 0 ? <ListOfPhotos photos={photos} /> : <h1 className='text-xl font-semibold my-4'>No Results</h1>;
+	console.log(photos);
+	if (photos) {
+		return photos.length > 0 ? <ListOfPhotos photos={photos} /> : <h1 className='text-xl font-semibold my-4'>No Results</h1>;
+	} else {
+		return (
+			<div>
+				<h1>Posible Problem with fetch limit</h1>
+			</div>
+		);
+	}
 };
 
 export { RenderPhotos };

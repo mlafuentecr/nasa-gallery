@@ -36,7 +36,8 @@ export default function Home() {
 		setCamera(cameraName);
 		setCamSelectedName(cameraName);
 
-		FetchPhotos(URI, setPhotos);
+		const newPhotos = await FetchPhotos(URI);
+		setPhotos(newPhotos);
 	};
 	const handleLoadUrlFromMemory = async (id: string | null) => {
 		const existingItems = getSavedItems();
@@ -61,8 +62,9 @@ export default function Home() {
 	};
 	const handleSearch = async (e: React.MouseEvent<HTMLButtonElement> | null) => {
 		if (e) e.preventDefault();
-		console.log(URI);
-		FetchPhotos(URI, setPhotos);
+		const newPhotos = await FetchPhotos(URI);
+		console.log(newPhotos);
+		setPhotos(newPhotos);
 	};
 
 	useEffect(() => {
