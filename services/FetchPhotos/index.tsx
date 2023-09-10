@@ -1,28 +1,15 @@
-import { useEffect, useState } from 'react';
+export const FetchPhotos = async (URI: any, setPhotos: React.Dispatch<React.SetStateAction<any[]>>) => {
+	try {
+		const response = await fetch(URI);
+		if (!response.ok) {
+			throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+		}
 
-interface FetchProps {
-	URI: string | null;
-}
+		const json = await response.json();
+		if (response.ok) setPhotos(json.photos);
 
-export function FetchPhotos({ URI }: FetchProps) {
-	const [photos, setPhotos] = useState<any[]>([]);
-
-	useEffect(() => {
-		const getPhotos = async () => {
-			if (URI !== null) {
-				try {
-					const response = await fetch(URI);
-					const json = await response.json();
-					setPhotos(json);
-					console.log(json, 'fetchjs');
-				} catch (ex) {
-					console.error('fetch inner', ex);
-				}
-			}
-		};
-
-		getPhotos();
-	}, [URI]);
-
-	return photos;
-}
+		console.log(json, 'fetchjs');
+	} catch (error) {
+		console.error('Eposible limit is full error fetching photos:', error.name);
+	}
+};

@@ -4,7 +4,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'http',
-				hostname: 'mars.jpl.nasa.gov',
+				hostname: '**',
 				port: '',
 				pathname: '/**',
 			},
