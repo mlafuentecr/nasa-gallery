@@ -1,4 +1,4 @@
-export const FetchPhotos = async (URI: any, setPhotos: React.Dispatch<React.SetStateAction<any[]>>) => {
+export const FetchPhotos = async (URI: any) => {
 	try {
 		const response = await fetch(URI);
 		if (!response.ok) {
@@ -6,10 +6,9 @@ export const FetchPhotos = async (URI: any, setPhotos: React.Dispatch<React.SetS
 		}
 
 		const json = await response.json();
-		if (response.ok) setPhotos(json.photos);
-
+		if (response.ok) return json.photos;
 		console.log(json, 'fetchjs');
 	} catch (error) {
-		console.error('Eposible limit is full error fetching photos:', error.name);
+		console.error('Eposible limit is full error fetching photos:', error);
 	}
 };
