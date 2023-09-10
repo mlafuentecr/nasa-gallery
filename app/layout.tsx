@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,10 +13,24 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
-				<header className='p-4 bg-slate-800 h-20 w-full flex justify-between items-center'>HEADER</header>
-				<main className='p-4 bg-white w-full  text-black z-10 text-sm lg:flex'>{children}</main>
-				<footer className='p-4 bg-slate-800 h-20 w-full flex justify-between items-center'>footer</footer>
+			<body className={` h-screen bg-red-500 ${inter.className}`}>
+				<header className='p-4 bg-slate-800  w-full flex justify-between items-center'>
+					<div>
+						<Image src='/favicon-192.png' height={50} width={50} alt='Mario lafuente' />
+					</div>
+				</header>
+				<main className='p-4 bg-white w-full h-screen  text-black z-10 text-sm lg:flex'>{children}</main>
+				<footer className='p-4 bg-slate-800  w-full flex justify-between items-center'>
+					<div className='flex justify-between w-full'>
+						<div>
+							<Image src='/favicon-192.png' height={144} width={144} alt='Mario lafuente' />
+						</div>
+						<div className='text-sm w-5/12 text-gray-600'>
+							Thumbnails are reduced-resolution versions of the original full-size images, occasionally used by the mission team to prioritize downlinks of the larger images. Movie frames are
+							full-size images from Mastcam-Z captured in video mode, plus some simila
+						</div>
+					</div>
+				</footer>
 			</body>
 		</html>
 	);

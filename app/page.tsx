@@ -63,7 +63,7 @@ export default function Home() {
 	const handleSearch = async (e: React.MouseEvent<HTMLButtonElement> | null) => {
 		if (e) e.preventDefault();
 		const newPhotos = await FetchPhotos(URI);
-		console.log(newPhotos);
+		console.log(newPhotos, URI);
 		setPhotos(newPhotos);
 	};
 
@@ -97,12 +97,12 @@ export default function Home() {
 
 	return (
 		<SearchContext.Provider value={contextValue}>
-			<div className='w-full flex flex-col-reverse md:flex-row flex-wrap justify-around items-start '>
-				<div className='content md:border-r-2 border-gray-300 p-4 w-full md:w-8/12'>
+			<div className='w-full h-full flex flex-col-reverse md:flex-row flex-wrap justify-around items-start '>
+				<div className='content h-full md:border-r-2 border-gray-300 p-4 w-full md:w-8/12'>
 					<h1 className='font-bold text-5xl text-gray-700'>Mars Rover Photos</h1>
-					<div className='wrap-movies'>
+					<div className='flex flex-col wrap-movies text-gray-500 h-80 justify-start align-top items-center  '>
 						<RenderPhotos photos={photos} />
-						<Pagination />
+						{photos ? <Pagination /> : <div></div>}
 					</div>
 				</div>
 				<Aside />
