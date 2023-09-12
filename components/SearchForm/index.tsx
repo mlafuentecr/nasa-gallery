@@ -55,7 +55,7 @@ const SearchForm = () => {
 				''
 			)}
 
-			<button onClick={e => theme?.handleSearch(e)} type='submit' className='rounded-full  mt-5 px-4 p-2 bg-slate-700 text-white z-10'>
+			<button onClick={e => theme?.handleSearch(e, null)} type='submit' className='rounded-full  mt-5 px-4 p-2 bg-slate-700 text-white z-10'>
 				🔎 Search
 			</button>
 			<button onClick={e => theme?.handlesaveBookmarkFromMemory(e)} className='rounded-full  mt-5 px-4 p-2  text-blue-500 mx-0 md:mx-2 z-10'>
