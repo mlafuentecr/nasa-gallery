@@ -74,7 +74,7 @@ export default function Home() {
 	};
 
 	useEffect(() => {
-		let newURI = `http://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=10&&api_key=DEMO_KEY`.toString(); //url when start
+		let newURI = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=10&&api_key=DEMO_KEY`.toString(); //url when start
 		setURI(newURI);
 		handleSearch(null, newURI);
 		handleLoadUrlFromMemory(null);
