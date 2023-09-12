@@ -18,7 +18,7 @@ export const camerasNames = [
 const ListCameras = () => {
 	const theme = useContext<ThemeContextType | undefined>(ThemeContext);
 	const handleCameraChange = (selectedCamera: any) => {
-		if (ThemeContext) {
+		if (theme) {
 			theme.setCamSelectedName(selectedCamera.name);
 			theme.setCamera(selectedCamera.id);
 		}
