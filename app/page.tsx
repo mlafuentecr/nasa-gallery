@@ -67,8 +67,6 @@ export default function Home() {
 	//handlSearch
 	const handleSearch = async (e: React.MouseEvent<HTMLButtonElement> | null, url: string) => {
 		if (e) e.preventDefault();
-		console.log(url, 'newPhotos', URI);
-
 		const newPhotos = URI ? await FetchPhotos(URI) : await FetchPhotos(url);
 		console.log(newPhotos, URI);
 		setPhotos(newPhotos);
@@ -76,7 +74,6 @@ export default function Home() {
 
 	useEffect(() => {
 		let newURI = `http://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=10&&api_key=DEMO_KEY`.toString(); //url when start
-		console.log(newURI);
 		setURI(newURI);
 		handleSearch(null, newURI);
 		handleLoadUrlFromMemory(null);
