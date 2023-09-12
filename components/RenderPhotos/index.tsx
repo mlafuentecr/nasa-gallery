@@ -13,7 +13,7 @@ const ListOfPhotos = ({ photos, currentPage, onPageChange }: { photos: any[]; cu
 		<>
 			<ul className='w-full grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-2 my-3'>
 				{currentPhotos.map((photo: any) => (
-					<li key={photo.id} className='w-full h-40 max-w-full rounded-lg relative border-2'>
+					<li key={photo.id} className='w-full h-40 max-w-full rounded-lg relative border-1 '>
 						<Image fill={true} sizes='(max-width: 400 100vw' className='hover:opacity-90 object-cover' src={photo.img_src} alt={photo.earth_date} />
 					</li>
 				))}
@@ -30,7 +30,11 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: { currentPage: nu
 	return (
 		<div className='flex justify-center mt-4'>
 			{pageNumbers.map(pageNumber => (
-				<button key={pageNumber} onClick={() => onPageChange(pageNumber)} className={`px-2 py-1 mr-1 border rounded-md hover:bg-gray-200 ${currentPage === pageNumber ? 'bg-gray-200' : ''}`}>
+				<button
+					key={pageNumber}
+					onClick={() => onPageChange(pageNumber)}
+					className={`px-2 py-1 mr-1 border border-purple-800 rounded-md hover:bg-purple-500 ${currentPage === pageNumber ? 'bg-purple-600' : ''}`}
+				>
 					{pageNumber}
 				</button>
 			))}

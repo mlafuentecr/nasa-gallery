@@ -13,21 +13,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='en'>
-			<body className={`  bg-red-500 ${inter.className}`}>
-				<header className='p-4 bg-slate-800  w-full flex justify-between items-center'>
+			<body className={` ${inter.className}`}>
+				<header className='p-4 bg-black w-full flex justify-between items-center border-b-2 border-purple-600 opacity-50'>
 					<div>
 						<Image src='/favicon-192.png' height={50} width={50} alt='Mario lafuente' />
 					</div>
 				</header>
-				<main className='p-4 min-h-screen bg-white w-full  text-black z-10 text-sm lg:flex'>{children}</main>
-				<footer className='p-4 bg-slate-800  w-full flex justify-between items-center'>
-					<div className='flex justify-between w-full'>
+				<main className='min-h-screen bg-black w-full  text-white z-10 text-sm lg:flex'>{children}</main>
+				<footer className='p-4 bg-slate-800  w-full flex  items-center border-t-2 border-purple-600'>
+					<div className='flex justify-between w-full items-center'>
 						<div>
-							<Image src='/favicon-192.png' height={144} width={144} alt='Mario lafuente' />
+							<Image src='/favicon-192.png' height={70} width={70} alt='Mario lafuente' />
 						</div>
 						<div className='text-sm w-5/12 text-gray-600'>
-							Thumbnails are reduced-resolution versions of the original full-size images, occasionally used by the mission team to prioritize downlinks of the larger images. Movie frames are
-							full-size images from Mastcam-Z captured in video mode, plus some simila
+							Discover the wonders of space and the cosmos with the NASA API, meticulously crafted by Mario LaFuente.{'\n'}
+							Get Started: Begin your journey into the cosmos by searching for images, browsing Mars rover photos, or diving into the depths of space. The universe is at your fingertips!
 						</div>
 					</div>
 				</footer>

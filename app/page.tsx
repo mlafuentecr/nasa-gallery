@@ -7,6 +7,7 @@ import ThemeContext, { ThemeContextType } from '@/hooks/ThemeContext';
 import { useURL } from '@/hooks/useURL';
 import { getCurrentDate } from '@/utils/getCurrentDate';
 import results from '@/mocks/results.json';
+import Image from 'next/image';
 export default function Home() {
 	const [camera, setCamera] = useState<string>('fhaz');
 	const [searchDate, setsearchDate] = useState<string>(getCurrentDate('-'));
@@ -107,14 +108,22 @@ export default function Home() {
 	//const testphotos = results.photos;
 	return (
 		<ThemeContext.Provider value={contextValue}>
-			<div className='w-full  flex flex-col-reverse md:flex-row flex-wrap justify-around items-start '>
-				<div className='content  md:border-r-2 border-gray-300 p-4 w-full md:w-8/12'>
-					<h1 className='font-bold text-5xl text-gray-700'>Mars Rover Photos</h1>
-					<div className='h-full flex flex-col wrap-movies text-gray-500  justify-start align-top items-center  '>
-						<RenderPhotos photos={photos} />
+			<div className='relative'>
+				<div className='w-full h-6/12 overflow-hidden mb-5 relative'>
+					<div className='text-holder absolute top-44  -right-20  flex flex-col'>
+						<h1 className=' border-l-2 ps-10 text-white drop-shadow-md decoration-purple-900 headline text-6xl font-extrabold w-8/12 mb-2 '>Explore NASA API</h1>
+						<span className='text-purple-300 ms-10'>By Mario Lafuente</span>
 					</div>
+					<Image src='/hadline.webp' width={1800} height={400} alt='nasa' className='object-cover ' />
 				</div>
-				<Aside />
+				<div className='content w-full  flex flex-col-reverse md:flex-row flex-wrap justify-around items-start py-4  bg-opacity-40  -top-40 relative '>
+					<div className='content  md:border-r-2 border-purple-900 p-4 w-full md:w-8/12  '>
+						<div className='h-full flex flex-col wrap-movies text-gray-500  justify-start align-top items-center  '>
+							<RenderPhotos photos={photos} />
+						</div>
+					</div>
+					<Aside />
+				</div>
 			</div>
 		</ThemeContext.Provider>
 	);

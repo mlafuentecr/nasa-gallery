@@ -25,7 +25,7 @@ const MyDatePicker: React.FC<DatePickerProps> = ({ dateType }) => {
 		return (
 			<div className='date-picker-wrap relative my-3 w-40  '>
 				<span className='absolute left-2 top-3 z-20'>📆</span>
-				<DatePicker showIcon selected={searchDate} onChange={date => handleClick(date)} />
+				<DatePicker selected={searchDate} onChange={date => handleClick(date)} />
 			</div>
 		);
 	} else {

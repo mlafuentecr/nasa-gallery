@@ -50,11 +50,19 @@ div[role=tablist]~div {
   z-index: 35 !important;
 }
 
-.react-datepicker__calendar-icon {
+/* .react-datepicker__calendar-icon {
   position: absolute;
   padding: 0.5rem;
   left: -10px !important;
   width: 30px;
-  height: 100%;
+  height: 30px;
   fill: #1e293b;
+} */
+
+.react-datepicker__input-container input {
+  background-color: #645380 !important;
+}
+
+.headline {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
