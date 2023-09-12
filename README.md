@@ -15,3 +15,7 @@ Optional:
 🔳 Let the user store search parameters as favorites or bookmarks that can be recalled in the future (Local storage is accepted, any serverless way of storing data is also accepted)
 🔳 A lot of extra points if you include a few tests.
 🔳 You can (and will get extra points) use NextJS to develop your app.
+
+## Url
+
+https://chimerical-bavarois-a8d865.netlify.app/
