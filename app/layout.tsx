@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='en'>
-			<body className={` h-screen bg-red-500 ${inter.className}`}>
+			<body className={`  bg-red-500 ${inter.className}`}>
 				<header className='p-4 bg-slate-800  w-full flex justify-between items-center'>
 					<div>
 						<Image src='/favicon-192.png' height={50} width={50} alt='Mario lafuente' />
 					</div>
 				</header>
-				<main className='p-4 bg-white w-full h-screen  text-black z-10 text-sm lg:flex'>{children}</main>
+				<main className='p-4 min-h-screen bg-white w-full  text-black z-10 text-sm lg:flex'>{children}</main>
 				<footer className='p-4 bg-slate-800  w-full flex justify-between items-center'>
 					<div className='flex justify-between w-full'>
 						<div>

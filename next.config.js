@@ -3,10 +3,24 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
+				protocol: 'https',
+				hostname: 'mars.nasa.gov',
+			},
+			{
+				protocol: 'https',
+				hostname: 'api.nasa.gov',
+			},
+			{
+				protocol: 'https',
+				hostname: '**.*',
+			},
+			{
 				protocol: 'http',
-				hostname: '**',
-				port: '',
-				pathname: '/**',
+				hostname: '**.*',
+			},
+			{
+				protocol: 'http',
+				hostname: 'mars.jpl.nasa.gov',
 			},
 		],
 	},

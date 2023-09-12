@@ -16,6 +16,11 @@
   }
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
@@ -43,4 +48,13 @@ div[role=tablist]~div {
 
 .react-datepicker-popper {
   z-index: 35 !important;
+}
+
+.react-datepicker__calendar-icon {
+  position: absolute;
+  padding: 0.5rem;
+  left: -10px !important;
+  width: 30px;
+  height: 100%;
+  fill: #1e293b;
 }

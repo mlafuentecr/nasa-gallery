@@ -1,11 +1,7 @@
-import { useState } from 'react';
-
+const API_KEY = 'DEMO_KEY';
 // Define your custom hook
 export function useURL() {
-	// Create a state variable to store the URL
-	const [url, setURL] = useState<string | null>(null);
-
-	const saveURL = (urlToSave: string) => {
+	const saveBookmark = (urlToSave: string) => {
 		const uniqueName = `${urlToSave}`;
 
 		const existingItems = JSON.parse(localStorage.getItem('uniqueNames') || '[]');
@@ -23,15 +19,27 @@ export function useURL() {
 		}
 	};
 
-	const getSavedItems = () => {
+	const getBookmark = () => {
 		const existingItems = JSON.parse(localStorage.getItem('uniqueNames') || '[]');
 		return existingItems;
 	};
 
-	const deleteAllItems = () => {
+	const deleteBookmark = () => {
 		localStorage.removeItem('uniqueNames');
 		console.log('All saved items have been deleted.');
 	};
 
-	return { saveURL, getSavedItems, deleteAllItems };
+	const GetURI = (dateType: string, rover: string, searchDate: string, camera: string) => {
+		const haveCamera = camera ? `camera=${camera}` : null;
+		if (dateType === 'Earth') {
+			return `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${searchDate}&${haveCamera}&api_key=${API_KEY}`;
+		} else {
+			console.log('entrando sol');
+			return `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=1000&${haveCamera}&page=1&api_key=DEMO_KEY`;
+		}
+	};
+
+	return { saveBookmark, getBookmark, deleteBookmark, GetURI };
 }
+
+import React from 'react';

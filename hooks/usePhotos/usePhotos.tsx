@@ -1,25 +1,16 @@
 import { useContext, useState } from 'react';
 import { FetchPhotos } from '@/services/FetchPhotos';
-import SearchContext, { SearchContextType } from '@/hooks/SearchContext';
+import ThemeContext, { ThemeContextType } from '@/hooks/ThemeContext';
 import { getCurrentDate } from '@/utils/getCurrentDate';
 import withResults from '../../mocks/results.json';
 
 export function usePhotos() {
-	const searchContext = useContext<SearchContextType | undefined>(SearchContext);
-
+	const theme = useContext<ThemeContextType | undefined>(ThemeContext);
 	const [photos, setPhotos] = useState<any[]>([]);
-	const API_KEY = 'DEMO_KEY';
-	const photoResults = withResults.photos;
+	//const photoResults = withResults.photos;
 
-	const { camera, rover, currentPage } = searchContext || {
-		camera: 'fhaz',
-		rover: 'Curiosity',
-		currentPage: 1,
-		startDate: getCurrentDate('-'),
-		dateType: 'earth_date',
-	};
 	const url = 'https://api.nasa.gov/mars-photos/api/v1';
-	const URI = `${url}/rovers/${rover}/photos?sol=1000&camera=${camera}&page=${currentPage}&api_key=${API_KEY}`;
+	const URI = `${url}/rovers/${theme?.rover}/photos?sol=1000&camera=${theme?.camera}&page=${theme?.currentPage}&api_key=EMO_KEY`;
 
 	const getPhotos = async () => {
 		const newPhotos = await FetchPhotos({ URI });

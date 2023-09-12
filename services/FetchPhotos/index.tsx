@@ -1,5 +1,6 @@
 export const FetchPhotos = async (URI: any) => {
 	try {
+		console.log('fetching2...', URI);
 		const response = await fetch(URI);
 		if (!response.ok) {
 			throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);

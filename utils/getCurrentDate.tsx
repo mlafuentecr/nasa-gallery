@@ -8,6 +8,6 @@ export function getCurrentDate(separator = '') {
 }
 
 /*
-import {getCurrentDate} from './utils'
-console.log(getCurrentDate())
+import { getCurrentDate } from '@/utils/getCurrentDate';
+console.log(getCurrentDate('-'))
 */

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import SearchContext, { SearchContextType } from '@/hooks/SearchContext';
+import ThemeContext, { ThemeContextType } from '@/hooks/ThemeContext';
 
 const rovers = [
 	{ id: 1, name: 'Curiosity', unavailable: true },
@@ -9,20 +9,18 @@ const rovers = [
 ];
 
 const ListRovers = () => {
-	const searchContext = useContext<SearchContextType | undefined>(SearchContext);
+	const theme = useContext<ThemeContextType | undefined>(ThemeContext);
 
 	const handleRoverChange = (selectedRover: any) => {
-		if (searchContext) {
-			searchContext.setRover(selectedRover.name);
-		}
+		if (theme) theme.setRover(selectedRover.name);
 	};
 
 	return (
-		<Listbox value={searchContext?.rover} onChange={selectedRover => handleRoverChange(selectedRover)}>
+		<Listbox value={theme?.rover} onChange={selectedRover => handleRoverChange(selectedRover)}>
 			{({ open }) => (
 				<div className='relative mt-1 z-50'>
 					<Listbox.Button className='border-gray-800 flex justify-between bg-slate-700 text-white relative w-full cursor-default rounded-lg py-2 px-3 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
-						<span className='block truncate'>{searchContext?.rover ? searchContext?.rover : 'Select a rover'}</span>
+						<span className='block truncate'>{theme?.rover ? theme?.rover : 'Select a rover'}</span>
 						<span>▼</span>
 					</Listbox.Button>
 					{open && (
