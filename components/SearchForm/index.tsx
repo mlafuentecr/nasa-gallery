@@ -8,11 +8,10 @@ import SavedSearch from '../SavedSearch';
 
 const SearchForm = () => {
 	const theme = useContext<ThemeContextType | undefined>(ThemeContext);
-	const buttonStye = `bg-gray-300 mt-3 p-3 flex align-middle border-2  border-white ${theme?.dateType === 'Earth' ? 'text-gray-black' : 'text-gray-500'}}`;
+	const buttonStye = `bg-gray-300 mt-3 p-3 flex align-middle border-2  border-white }`;
 
 	const handleClick = (type: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		console.log(type);
 		theme?.setDateType(type);
 	};
 	return (
@@ -22,13 +21,13 @@ const SearchForm = () => {
 			<span className='sub-title font-medium text-xl mt-5 flex'>Cameras</span>
 			<ListCameras />
 
-			<div className=' flex flex-wrap  text-sm font-medium text-center '>
+			<div className={` flex flex-wrap  text-sm font-medium text-center`}>
 				<button className='w-6/12' onClick={handleClick('Earth')}>
-					<span className={` ${buttonStye}`}> Earth Day</span>
+					<span className={` ${buttonStye} ${theme?.dateType === 'Earth' ? 'text-gray-black' : 'text-gray-500'}`}> Earth Day</span>
 				</button>
 
 				<button className='w-6/12' onClick={handleClick('Sol')}>
-					<span className={`${buttonStye}`}> Sol Day</span>
+					<span className={`${buttonStye} ${theme?.dateType === 'Sol' ? 'text-gray-black' : 'text-gray-500'}`}> Sol Day</span>
 				</button>
 
 				<div className='content border-b-2 border-gray-300 px-2 bg-gray-200 w-full'>
@@ -59,7 +58,7 @@ const SearchForm = () => {
 			<button onClick={e => theme?.handleSearch(e)} type='submit' className='rounded-full  mt-5 px-4 p-2 bg-slate-700 text-white z-10'>
 				🔎 Search
 			</button>
-			<button onClick={e => theme?.handlesaveBookmarkFromMemory(e)} className='rounded-full  mt-5 px-4 p-2 bg-slate-400 text-white mx-0 md:mx-2 z-10'>
+			<button onClick={e => theme?.handlesaveBookmarkFromMemory(e)} className='rounded-full  mt-5 px-4 p-2  text-blue-500 mx-0 md:mx-2 z-10'>
 				🔖 Save this
 			</button>
 		</form>

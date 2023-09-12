@@ -10,7 +10,7 @@ import results from '@/mocks/results.json';
 export default function Home() {
 	const [camera, setCamera] = useState<string>('fhaz');
 	const [searchDate, setsearchDate] = useState<string>(getCurrentDate('-'));
-	const [dateType, setDateType] = useState<string>('Earth');
+	const [dateType, setDateType] = useState<string>('Sol');
 	const [rover, setRover] = useState<string>('Curiosity');
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const [photos, setPhotos] = useState<any[]>([]);
@@ -65,19 +65,20 @@ export default function Home() {
 		setsavedUrls([]);
 	};
 	//handlSearch
-	const handleSearch = async (e: React.MouseEvent<HTMLButtonElement> | null) => {
+	const handleSearch = async (e: React.MouseEvent<HTMLButtonElement> | null, url: string) => {
 		if (e) e.preventDefault();
-		console.log('fetching1...', URI);
-		const newPhotos = await FetchPhotos(URI);
+		console.log(url, 'newPhotos', URI);
+
+		const newPhotos = URI ? await FetchPhotos(URI) : await FetchPhotos(url);
 		console.log(newPhotos, URI);
 		setPhotos(newPhotos);
 	};
 
 	useEffect(() => {
-		console.log(getCurrentDate('-'));
-		let newURI = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${getCurrentDate('-')}&api_key=DEMO_KEY`.toString(); //url when start
+		let newURI = `http://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=10&&api_key=DEMO_KEY`.toString(); //url when start
+		console.log(newURI);
 		setURI(newURI);
-		handleSearch(null);
+		handleSearch(null, newURI);
 		handleLoadUrlFromMemory(null);
 	}, []);
 

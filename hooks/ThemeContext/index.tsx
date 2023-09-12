@@ -1,4 +1,3 @@
-// ThemeContext.tsx
 import { createContext } from 'react';
 
 export interface ThemeContextType {
@@ -20,7 +19,7 @@ export interface ThemeContextType {
 	setURI: React.Dispatch<React.SetStateAction<any>>;
 	handleFetchUrlFromMemory: (URI: string) => void;
 	handleLoadUrlFromMemory: (id: string) => void;
-	handleSearch: (e: React.MouseEvent<HTMLButtonElement>) => void;
+	handleSearch: (e: React.MouseEvent<HTMLButtonElement> | null, url: string) => void; // Updated the parameter list
 	handleDeleteUrls: (e: React.MouseEvent<HTMLButtonElement>) => void;
 	handlesaveBookmarkFromMemory: (e: React.MouseEvent<HTMLButtonElement>) => void;
 	deleteBookmark: (e: React.MouseEvent<HTMLButtonElement>) => void;

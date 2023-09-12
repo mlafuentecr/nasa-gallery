@@ -1,5 +1,4 @@
-'use client';
-import React, { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import ThemeContext, { ThemeContextType } from '@/hooks/ThemeContext';
 
@@ -37,11 +36,9 @@ const ListCameras = () => {
 							<Listbox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
 								{camerasNames.map(item => (
 									<Listbox.Option key={item.id} value={item}>
-										{({ selected }) => (
-											<div className={`${theme?.camera ? 'bg-amber-100 text-amber-900' : 'text-gray-900'} cursor-pointer select-none py-2 pl-10 pr-4 relative`}>
-												<span className={`block truncate ${theme?.camera ? 'font-medium' : 'font-normal'}`}>{item.name}</span>
-											</div>
-										)}
+										<div className={`${theme?.camera ? 'bg-amber-100 text-amber-900' : 'text-gray-900'} cursor-pointer select-none py-2 pl-10 pr-4 relative`}>
+											<span className={`block truncate ${theme?.camera ? 'font-medium' : 'font-normal'}`}>{item.name}</span>
+										</div>
 									</Listbox.Option>
 								))}
 							</Listbox.Options>

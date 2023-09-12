@@ -17,9 +17,7 @@ const MyDatePicker: React.FC<DatePickerProps> = ({ dateType }) => {
 		if (date) {
 			const formattedDate = formatDate(date.toDateString());
 			setsearchDate(date);
-			console.log('formattedDate=', formattedDate, 'xxxxxx', theme?.searchDate);
 			theme?.setsearchDate(formattedDate);
-			console.log('formattedDate=', formattedDate, 'xxxxxx', theme?.searchDate);
 		}
 	};
 
