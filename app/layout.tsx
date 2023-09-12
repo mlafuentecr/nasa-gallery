@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<Image src='/favicon-192.png' height={50} width={50} alt='Mario lafuente' />
 					</div>
 				</header>
-				<main className='min-h-screen bg-black w-full  text-white z-10 text-sm lg:flex'>{children}</main>
+				<main className='min-h-screen bg-black w-full   text-white z-10 text-sm lg:flex'>{children}</main>
 				<footer className='p-4 bg-slate-800  w-full flex  items-center border-t-2 border-purple-600'>
 					<div className='flex justify-between w-full items-center'>
 						<div>

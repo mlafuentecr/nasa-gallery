@@ -110,13 +110,13 @@ export default function Home() {
 		<ThemeContext.Provider value={contextValue}>
 			<div className='relative'>
 				<div className='w-full h-6/12 overflow-hidden mb-5 relative'>
-					<div className='text-holder absolute top-44  -right-20  flex flex-col'>
-						<h1 className=' border-l-2 ps-10 text-white drop-shadow-md decoration-purple-900 headline text-6xl font-extrabold w-8/12 mb-2 '>Explore NASA API</h1>
+					<div className='text-holder absolute top-20  md:top-44  sm:-right-20  flex flex-col'>
+						<h1 className=' border-l-2 ps-10 text-white drop-shadow-md decoration-purple-900 headline  text-1lg text-6xl font-extrabold sm:w-8/12 mb-2 '>Explore NASA API</h1>
 						<span className='text-purple-300 ms-10'>By Mario Lafuente</span>
 					</div>
 					<Image src='/hadline.webp' width={1800} height={400} alt='nasa' className='object-cover ' />
 				</div>
-				<div className='content w-full  flex flex-col-reverse md:flex-row flex-wrap justify-around items-start py-4  bg-opacity-40  -top-40 relative '>
+				<div className='content w-full  flex flex-col-reverse md:flex-row flex-wrap justify-around items-start py-4  bg-opacity-40  lg:-top-60  relative '>
 					<div className='content  md:border-r-2 border-purple-900 p-4 w-full md:w-8/12  '>
 						<div className='h-full flex flex-col wrap-movies text-gray-500  justify-start align-top items-center  '>
 							<RenderPhotos photos={photos} />
