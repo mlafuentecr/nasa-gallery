@@ -65,7 +65,7 @@ export default function Home() {
 		setsavedUrls([]);
 	};
 	//handlSearch
-	const handleSearch = async (e: React.MouseEvent<HTMLButtonElement> | null, url: string) => {
+	const handleSearch = async (e: React.MouseEvent<HTMLButtonElement> | null, url: string | null) => {
 		if (e) e.preventDefault();
 		const newPhotos = URI ? await FetchPhotos(URI) : await FetchPhotos(url);
 		console.log(newPhotos, URI);
